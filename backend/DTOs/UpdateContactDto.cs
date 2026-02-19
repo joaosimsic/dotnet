@@ -5,6 +5,5 @@ namespace PhoneBook.Api.DTOs;
 public record UpdateContactDto(
     [Required][MaxLength(200)] string Name,
     [Required][Range(1, 149)] int Age,
-    [Required] List<string> PhoneNumbers
+    [Required][MinLength(1)] List<string> PhoneNumbers
 );
-
