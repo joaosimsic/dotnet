@@ -11,7 +11,9 @@ public class DeletionLogService : IDeletionLogService
     public DeletionLogService(IConfiguration configuration, ILogger<DeletionLogService> logger)
     {
         _logger = logger;
-        _logPath = configuration["LogSettings:DeletionLogPath"] ?? "/app/logs/deletion_log.txt";
+        _logPath = Environment.GetEnvironmentVariable("DELETION_LOG_PATH") 
+            ?? configuration["LogSettings:DeletionLogPath"] 
+            ?? "/app/logs/deletion_log.txt";
 
         try
         {
