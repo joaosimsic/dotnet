@@ -84,6 +84,8 @@ static async Task InitializeDatabaseAsync(WebApplication app)
         {
             await db.Database.EnsureCreatedAsync();
             logger.LogInformation("Database initialized successfully");
+            
+            await DbSeeder.SeedAsync(db, logger);
             return;
         }
         catch (Exception ex) when (attempt < maxRetries)
