@@ -87,7 +87,7 @@ Every time a contact is deleted, the backend logs the action (including the time
 To run the backend unit tests:
 
 ```bash
-cd backend
+cd backend/PhoneBook.Api.Tests
 dotnet test
 
 ```
